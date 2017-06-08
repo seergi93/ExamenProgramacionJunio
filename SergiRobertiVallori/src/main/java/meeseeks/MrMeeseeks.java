@@ -73,6 +73,8 @@ public class MrMeeseeks implements Doable {
     }
 
     public void sayMessageOnExplode() {
+        
+        System.out.println("");
 
     }
 
@@ -89,44 +91,11 @@ public class MrMeeseeks implements Doable {
     /*
     GETTERS AND SETTERS
      */
+
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
-    public String[] getMrMeesesksResonse() {
-        return mrMeesesksResonse;
-    }
-
-    public void setMrMeesesksResonse(String[] mrMeesesksResonse) {
-        this.mrMeesesksResonse = mrMeesesksResonse;
-    }
-
-    public String getOnDone() {
-        return onDone;
-    }
-
-    public void setOnDone(String onDone) {
-        this.onDone = onDone;
-    }
-
-    public String getOnExplode() {
-        return onExplode;
-    }
-
-    public void setOnExplode(String onExplode) {
-        this.onExplode = onExplode;
-    }
-
-    public String[] getMessatgeOnRequestString() {
-        return messatgeOnRequestString;
-    }
-
-    public void setMessatgeOnRequestString(String[] messatgeOnRequestString) {
-        this.messatgeOnRequestString = messatgeOnRequestString;
-    }
 
 }

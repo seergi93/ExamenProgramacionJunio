@@ -19,10 +19,10 @@ public class App {
 // Crea una estructura de datos llamada ids donde almacenar los ids de los Mr Meeseeks creados
     public static ArrayList<MrMeeseeks> setMrMe = new ArrayList<MrMeeseeks>();
     public static ArrayList<Integer> ids = new ArrayList<>();
+    public static ProxyMrMeeseeks box = new ProxyMrMeeseeks();
 
     public static void main(String[] args) {
 
-        ProxyMrMeeseeks box = new ProxyMrMeeseeks();
 
         box.pushButton(setMrMe);
         System.out.println("Open Jerry's stupid mayonnaise jar");
@@ -38,7 +38,6 @@ public class App {
         System.out.println("I wanna be a more complete woman!");
         box.getMrMe().formulateRequest("Be", "a more complete woman");
         System.out.println();
-
 
         System.out.println("Estos son los Mr Meeseeks creados:");
         listMrMeeseeks(setMrMe);
@@ -63,18 +62,30 @@ public class App {
  /* explodeMrMeeseeks(setMrMe, id)
 		 * elimna del conjunto de Mr Meeseeks creados el que ya ha completado su cometido
      */
-
     private static void listMrMeeseeks(ArrayList<MrMeeseeks> setMrMe) {
-        
-        for(Integer id : App.ids ){
-            System.out.println(id);
+
+        for (MrMeeseeks mrme : App.setMrMe) {
+            System.out.println(mrme.getId());
         }
-        
-        
-        
-        }
+
+    }
 
     private static void collectIds(ArrayList<MrMeeseeks> setMrMe, ArrayList<Integer> ids) {
+        for (MrMeeseeks mrme : App.setMrMe) {
+            App.ids.add(mrme.getId());
+
+        }
+
+    }
+
+    private static void explodeMrMeeseeks(ArrayList<MrMeeseeks> setMrMe, Integer id) {
+       
+        App.ids.remove(id);
+        setMrMe.get(id).sayMessageOnExplode();
         
+        
+        
+        
+    
     }
 }
