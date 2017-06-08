@@ -11,6 +11,7 @@ package interfaces;
  */
 public interface DoSomethingSimple<T,R> {
     
-    public void doRequest(T t, R r);
+   T doRequest(T accion, R objeto);
+
     
 }

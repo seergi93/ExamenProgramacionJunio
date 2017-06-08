@@ -9,22 +9,124 @@ package meeseeks;
  *
  * @author Sergi
  */
+import interfaces.Doable;
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
+import main.App;
 
 // cambia el nombre de la clase
-public class MrMeeseeks {
+public class MrMeeseeks implements Doable {
 
     private static AtomicInteger ID_GENERATOR = new AtomicInteger(1000);
     private Integer id;
+    private String[] mrMeesesksResonse = {"Oooh yeah! Can do!", "Yes sireee!", "Oh, yeah! Yes, ma'am!"};
+
+    private String onDone = "All Done", onExplode = "Pooooof";
+    private String[] messatgeOnRequestString;
 
     public MrMeeseeks() {
         this.id = ID_GENERATOR.incrementAndGet();
     }
 
-    /* generateMessageOnRequest()
-	 * elige al azar uno de los tres mensajes
-         * que lanza Mr Meeseeks cuando se le formula
-	 * la peticion:
-	 * "Oooh yeah! Can do!"; "Yes sireee!"; "Oh, yeah! Yes, ma'am!"
+    public void formulateRequest(String verbo, String adjetivo) {
+
+        
+        sayMessageOnRequest();
+        System.out.println(verbo + " " + adjetivo);
+        sayMessageOnDone();
+
+    }
+
+    public static AtomicInteger getID_GENERATOR() {
+        return ID_GENERATOR;
+    }
+
+    public static void setID_GENERATOR(AtomicInteger ID_GENERATOR) {
+        MrMeeseeks.ID_GENERATOR = ID_GENERATOR;
+    }
+
+    public void sayMessageOnCreate() {
+        System.out.println("I'm Mr Meeseeks " + this.id + ".Look at me!");
+
+    }
+
+    private void sayMessageOnRequest() {
+        generateMessageOnRequest();
+
+    }
+
+    private void generateMessageOnRequest() {
+
+        Random random = new Random();
+        int aleatorio = random.nextInt(3);
+
+        System.out.println(this.mrMeesesksResonse[aleatorio].toString());
+
+    }
+
+    public void sayMessageOnDone() {
+
+        System.out.println(this.onDone);
+
+    }
+
+    public void sayMessageOnExplode() {
+
+    }
+
+    @Override
+    public Object doRequest(Object accion, Object objeto) {
+
+        return this.messatgeOnRequestString;
+    }
+
+    public void stopExisting() {
+
+    }
+
+    /*
+    GETTERS AND SETTERS
      */
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String[] getMrMeesesksResonse() {
+        return mrMeesesksResonse;
+    }
+
+    public void setMrMeesesksResonse(String[] mrMeesesksResonse) {
+        this.mrMeesesksResonse = mrMeesesksResonse;
+    }
+
+    public String getOnDone() {
+        return onDone;
+    }
+
+    public void setOnDone(String onDone) {
+        this.onDone = onDone;
+    }
+
+    public String getOnExplode() {
+        return onExplode;
+    }
+
+    public void setOnExplode(String onExplode) {
+        this.onExplode = onExplode;
+    }
+
+    public String[] getMessatgeOnRequestString() {
+        return messatgeOnRequestString;
+    }
+
+    public void setMessatgeOnRequestString(String[] messatgeOnRequestString) {
+        this.messatgeOnRequestString = messatgeOnRequestString;
+    }
+
 }

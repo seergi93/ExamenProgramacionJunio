@@ -6,6 +6,7 @@
 package meeseeks;
 
 import java.util.ArrayList;
+import main.App;
 
 /**
  *
@@ -13,7 +14,8 @@ import java.util.ArrayList;
  */
 public class ProxyMrMeeseeks extends MrMeeseeks {
 
-    MrMeeseeks mrMeeseek = new MrMeeseeks();
+
+    private MrMeeseeks mrMeeseek = new MrMeeseeks();
 
     public MrMeeseeks getMrMe() {
         return mrMeeseek;
@@ -23,11 +25,15 @@ public class ProxyMrMeeseeks extends MrMeeseeks {
         this.mrMeeseek = MrMeeseek;
     }
 
-    public void createMrMeeseeks(ArrayList<MrMeeseeks> listaMeeseeks) {
+    private void createMrMeeseeks(ArrayList<MrMeeseeks> listaMeeseeks) {
+        App.setMrMe.add(mrMeeseek);
+        App.ids.add(mrMeeseek.getId());
 
     }
 
     public void pushButton(ArrayList<MrMeeseeks> listaMeeseeks) {
+        createMrMeeseeks(listaMeeseeks);
+        this.mrMeeseek.sayMessageOnCreate();
 
     }
 

@@ -5,6 +5,9 @@
  */
 package main;
 
+import java.util.ArrayList;
+import meeseeks.MrMeeseeks;
+import meeseeks.ProxyMrMeeseeks;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,42 +20,36 @@ import static org.junit.Assert.*;
  * @author Sergi
  */
 public class AppTest {
-    
+
     public AppTest() {
     }
-    
+
     @Test
-    public void botonCrearMeeseek(){
-        
-        
+    public void botonCrearMeeseek() {
+        ProxyMrMeeseeks box = new ProxyMrMeeseeks();
+
+        box.pushButton(App.setMrMe);
+        assertNotNull(App.setMrMe);
+        assertNotNull(App.ids);
+
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
+
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
+
     }
-    
+
     @After
     public void tearDown() {
     }
 
-    /**
-     * Test of main method, of class App.
-     */
-    @Test
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        App.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-    
 }

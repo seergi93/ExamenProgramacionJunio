@@ -9,6 +9,6 @@ package interfaces;
  *
  * @author Sergi
  */
-public interface Doable {
+public interface Doable extends DoSomethingSimple {
     
 }
