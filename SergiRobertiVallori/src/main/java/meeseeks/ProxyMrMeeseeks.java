@@ -13,8 +13,7 @@ import java.util.ArrayList;
  */
 public class ProxyMrMeeseeks extends MrMeeseeks {
 
-
-    private MrMeeseeks mrMeeseek = new MrMeeseeks();
+    private MrMeeseeks mrMeeseek = null;
 
     public MrMeeseeks getMrMe() {
         return mrMeeseek;
@@ -24,16 +23,14 @@ public class ProxyMrMeeseeks extends MrMeeseeks {
         this.mrMeeseek = MrMeeseek;
     }
 
-    private void createMrMeeseeks(ArrayList<MrMeeseeks> listaMeeseeks) {
-        MrMeeseeks mrMe= new MrMeeseeks();
-        listaMeeseeks.add(mrMe);
-
+    public void pushButton(ArrayList<MrMeeseeks> setMrMe) {
+        createMrMeeseeks(setMrMe);
+        getMrMe().sayMessageOnCreate();
     }
 
-    public void pushButton(ArrayList<MrMeeseeks> listaMeeseeks) {
-        createMrMeeseeks(listaMeeseeks);
-        this.mrMeeseek.sayMessageOnCreate();
-
+    public void createMrMeeseeks(ArrayList<MrMeeseeks> setMrMt) {
+        mrMeeseek = new MrMeeseeks();
+        setMrMt.add(mrMeeseek);
     }
 
 }

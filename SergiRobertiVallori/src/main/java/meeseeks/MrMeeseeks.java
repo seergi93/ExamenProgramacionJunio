@@ -17,12 +17,11 @@ import java.util.stream.IntStream;
 import main.App;
 
 // cambia el nombre de la clase
-public class MrMeeseeks implements Doable {
+public class MrMeeseeks  {
 
     private static AtomicInteger ID_GENERATOR = new AtomicInteger(1000);
     private Integer id;
     private String[] mrMeesesksResonse = {"Oooh yeah! Can do!", "Yes sireee!", "Oh, yeah! Yes, ma'am!"};
-
     private String onDone = "All Done", onExplode = "Pooooof";
     private String[] messatgeOnRequestString;
 
@@ -32,9 +31,9 @@ public class MrMeeseeks implements Doable {
 
     public void formulateRequest(String verbo, String adjetivo) {
 
-        
         sayMessageOnRequest();
-        System.out.println(verbo + " " + adjetivo);
+        String sms = doRequest(verbo, adjetivo);
+        System.out.println(sms);
         sayMessageOnDone();
 
     }
@@ -48,16 +47,15 @@ public class MrMeeseeks implements Doable {
     }
 
     public void sayMessageOnCreate() {
-        System.out.println("I'm Mr Meeseeks " + this.id + ".Look at me!");
-
+        System.out.println("I'm Mr Meeseeks " + getId() + ".Look at meee!");
     }
 
-    private void sayMessageOnRequest() {
+    public void sayMessageOnRequest() {
         generateMessageOnRequest();
 
     }
 
-    private void generateMessageOnRequest() {
+    public void generateMessageOnRequest() {
 
         Random random = new Random();
         int aleatorio = random.nextInt(3);
@@ -73,29 +71,26 @@ public class MrMeeseeks implements Doable {
     }
 
     public void sayMessageOnExplode() {
-        
-        System.out.println("");
 
-    }
+        System.out.println(onExplode+": "+getId());
 
-    @Override
-    public Object doRequest(Object accion, Object objeto) {
-
-        return this.messatgeOnRequestString;
     }
 
     public void stopExisting() {
-
+        sayMessageOnExplode();
+    }
+    
+    public String doRequest(String request, String action) {
+        String sms = request + " " + action;
+        return sms;
     }
 
     /*
     GETTERS AND SETTERS
      */
-
     public Integer getId() {
         return id;
     }
-
 
 
 }

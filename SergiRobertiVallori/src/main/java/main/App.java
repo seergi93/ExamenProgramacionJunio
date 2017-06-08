@@ -19,11 +19,10 @@ public class App {
 // Crea una estructura de datos llamada ids donde almacenar los ids de los Mr Meeseeks creados
     public static ArrayList<MrMeeseeks> setMrMe = new ArrayList<MrMeeseeks>();
     public static ArrayList<Integer> ids = new ArrayList<>();
-    public static ProxyMrMeeseeks box = new ProxyMrMeeseeks();
 
     public static void main(String[] args) {
 
-
+        ProxyMrMeeseeks box = new ProxyMrMeeseeks();
         box.pushButton(setMrMe);
         System.out.println("Open Jerry's stupid mayonnaise jar");
         box.getMrMe().formulateRequest("Open", "stupid jar");
@@ -44,11 +43,26 @@ public class App {
         System.out.println();
 
         collectIds(setMrMe, ids);
-
         System.out.println("Adios, Mr Meeseeks...");
         for (Integer id : ids) {
             explodeMrMeeseeks(setMrMe, id);
         }
+
+    }
+
+    public static void explodeMrMeeseeks(ArrayList<MrMeeseeks> setMrMe, Integer id) {
+
+        MrMeeseeks mrme2 = null;
+
+        for (MrMeeseeks mrme : setMrMe) {
+            if (mrme.getId() == id) {
+                mrme.stopExisting();
+                mrme2 = mrme;
+            }
+
+        }
+        setMrMe.remove(mrme2);
+
     }
 
     /* collectIds(setMrMe, ids)
@@ -62,30 +76,20 @@ public class App {
  /* explodeMrMeeseeks(setMrMe, id)
 		 * elimna del conjunto de Mr Meeseeks creados el que ya ha completado su cometido
      */
-    private static void listMrMeeseeks(ArrayList<MrMeeseeks> setMrMe) {
+    public static void listMrMeeseeks(ArrayList<MrMeeseeks> setMrMe) {
 
-        for (MrMeeseeks mrme : App.setMrMe) {
+        for (MrMeeseeks mrme : setMrMe) {
             System.out.println(mrme.getId());
         }
 
     }
 
-    private static void collectIds(ArrayList<MrMeeseeks> setMrMe, ArrayList<Integer> ids) {
-        for (MrMeeseeks mrme : App.setMrMe) {
-            App.ids.add(mrme.getId());
+    public static void collectIds(ArrayList<MrMeeseeks> setMrMe, ArrayList<Integer> ids) {
+        for (MrMeeseeks mrme : setMrMe) {
+            ids.add(mrme.getId());
 
         }
 
     }
 
-    private static void explodeMrMeeseeks(ArrayList<MrMeeseeks> setMrMe, Integer id) {
-       
-        App.ids.remove(id);
-        setMrMe.get(id).sayMessageOnExplode();
-        
-        
-        
-        
-    
-    }
 }
