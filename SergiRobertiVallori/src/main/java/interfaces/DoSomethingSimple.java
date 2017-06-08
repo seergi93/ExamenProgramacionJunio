@@ -9,6 +9,8 @@ package interfaces;
  *
  * @author Sergi
  */
-public class DoSomethingSimple {
+public interface DoSomethingSimple<T,R> {
+    
+    public void doRequest(T t, R r);
     
 }

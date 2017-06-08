@@ -5,16 +5,23 @@
  */
 package main;
 
+import java.util.ArrayList;
+import meeseeks.MrMeeseeks;
+import meeseeks.ProxyMrMeeseeks;
+
 /**
  *
  * @author Sergi
  */
-public class AppAlumnado {
+public class App {
 
     public static void main(String[] args) {
 
         // Crea una estructura de datos llamada setMrMe donde almacenar los Mr Meeseeks creados
-        // Crea una estructura de datos llamada ids donde almacenar los ids de los Mr Meeseeks creados
+        ArrayList<MrMeeseeks> setMrMe = null;
+// Crea una estructura de datos llamada ids donde almacenar los ids de los Mr Meeseeks creados
+        ArrayList<MrMeeseeks> ids = null;
+
         ProxyMrMeeseeks box = new ProxyMrMeeseeks();
 
         box.pushButton(setMrMe);
@@ -32,17 +39,17 @@ public class AppAlumnado {
         box.getMrMe().formulateRequest("Be", "a more complete woman");
         System.out.println();
 
-        System.out.println("Estos son los Mr Meeseeks creados:");
-        listMrMeeseeks(setMrMe);
-        System.out.println();
-
-        collectIds(setMrMe, ids);
-
-        System.out.println("Adios, Mr Meeseeks...");
-        for (Integer id : ids) {
-            explodeMrMeeseeks(setMrMe, id);
-        }
-
+//
+//        System.out.println("Estos son los Mr Meeseeks creados:");
+//        listMrMeeseeks(setMrMe);
+//        System.out.println();
+//
+//        collectIds(setMrMe, ids);
+//
+//        System.out.println("Adios, Mr Meeseeks...");
+//        for (Integer id : ids) {
+//            explodeMrMeeseeks(setMrMe, id);
+//        }
     }
 
     /* collectIds(setMrMe, ids)
